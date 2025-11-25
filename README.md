@@ -73,7 +73,6 @@ The service exposes a single core endpoint for command execution.
 # Your docker image having CLI tool
 FROM index.docker.io/library/debian:13-slim
 
-# Application source
 EXPOSE 8080
 
 ADD ./cmd-jumper-debian-aarch64 /app/cmd-jumper-debian-aarch64
