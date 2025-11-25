@@ -65,16 +65,18 @@ jobs:
           retention-days: 7
 
   build-native:
-    runs-on: ubuntu-latest
+    runs-on: ${{ matrix.runner }}
     timeout-minutes: 15
     strategy:
       fail-fast: false
       matrix:
         operatingSystem:
           - name: debian
+            runner: ubuntu-24.04-arm
             architecture: aarch64
             serviceName: debian
           - name: debian
+            runner: ubuntu-24.04
             architecture: x64
             serviceName: debian
     steps:
