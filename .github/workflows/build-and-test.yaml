@@ -65,7 +65,7 @@ jobs:
           retention-days: 7
 
   build-native:
-    runs-on: ${{ matrix.runner }}
+    runs-on: ${{ matrix.operatingSystem.runner }}
     timeout-minutes: 15
     strategy:
       fail-fast: false
