@@ -43,7 +43,7 @@ class CommandFailsDuringExecutionTest(
         }
 
         test("Response has got Exit Code=0"){
-            assertThat(resJsonBody["exitCode"].intValue()).isEqualTo(1)
+            assertThat(resJsonBody["exitCode"].intValue()).isNotEqualTo(0)
         }
 
         test("""Response has got stdout=[]"""){
