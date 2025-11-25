@@ -102,3 +102,12 @@ jobs:
           docker compose cp $SERVICE_NAME:/builder/build/native/nativeCompile/$APP_NAME ./built_native_image/$BIN_NAME
           
           ls -lh built_native_image
+
+      - name: Upload native image
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: test-results
+          path: |
+            ./built_native_image/**
+          retention-days: 7
