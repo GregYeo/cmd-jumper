@@ -1,0 +1,4 @@
+services:
+  debian:
+    build:
+      dockerfile: runtime/debian.Dockerfile
