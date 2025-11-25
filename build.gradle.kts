@@ -29,7 +29,7 @@ dependencies {
 }
 
 springBoot {
-    mainClass = "com.postvisioning.CmdSuitKt"
+    mainClass = "com.postvisioning.CmdJumperApplicationKt"
 }
 
 

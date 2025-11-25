@@ -9,16 +9,13 @@ It acts as a secure RPC (Remote Procedure Call) endpoint, enabling external serv
     root@b74d56e308b8:/# export SERVER_PORT=7777
     root@b74d56e308b8:/# time ./cmd-jumper-debian-aarch64
     
-    2025-11-25T06:25:18.264Z  INFO 169 --- [           main] com.postvisioning.CmdSuitKt              : Starting AOT-processed CmdSuitKt using Java 21.0.2 with PID 169 (/cmd-jumper-debian-aarch64 started by root in /)
-    2025-11-25T06:25:18.264Z DEBUG 169 --- [           main] com.postvisioning.CmdSuitKt              : Running with Spring Boot v3.5.4, Spring v6.2.9
-    2025-11-25T06:25:18.264Z  INFO 169 --- [           main] com.postvisioning.CmdSuitKt              : No active profile set, falling back to 1 default profile: "default"
-    2025-11-25T06:25:18.272Z  INFO 169 --- [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 7777 (http)
-    2025-11-25T06:25:18.273Z  INFO 169 --- [           main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-    2025-11-25T06:25:18.273Z  INFO 169 --- [           main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.43]
-    2025-11-25T06:25:18.278Z  INFO 169 --- [           main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+    2025-11-25T06:25:18.264Z  INFO 169 --- [           main] com.postvisioning.CmdJumperApplicationKt : Starting AOT-processed CmdJumperApplicationKt using Java 21.0.2 with PID 169 (/cmd-jumper-debian-aarch64 started by root in /)
+    
+    ...
+    
     2025-11-25T06:25:18.278Z  INFO 169 --- [           main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 14 ms
     2025-11-25T06:25:18.298Z  INFO 169 --- [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 7777 (http) with context path '/'
-    2025-11-25T06:25:18.300Z  INFO 169 --- [           main] com.postvisioning.CmdSuitKt              : Started CmdSuitKt in 0.044 seconds (process running for 0.049)
+    2025-11-25T06:25:18.300Z  INFO 169 --- [           main] com.postvisioning.CmdJumperApplicationKt : Started CmdJumperApplicationKt in 0.044 seconds (process running for 0.049)
     
     ^C
     
