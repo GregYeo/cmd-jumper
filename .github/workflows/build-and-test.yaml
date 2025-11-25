@@ -87,11 +87,17 @@ jobs:
           APP_NAME="cmd-jumper"
           SERVICE_NAME="${{ matrix.operatingSystem.serviceName }}"
           ARCHITECTURE="${{ matrix.operatingSystem.architecture }}"
-          BIN_NAME="$APP_NAME-$SERVICE_NAME-${{ matrix.operatingSystem.architecture }}"
 
           docker compose build $SERVICE_NAME --build-arg ARCHITECTURE=$ARCHITECTURE
           docker compose up --no-start
-          
+
+      - name: Extract
+        run: |
+          APP_NAME="cmd-jumper"
+          SERVICE_NAME="${{ matrix.operatingSystem.serviceName }}"
+          ARCHITECTURE="${{ matrix.operatingSystem.architecture }}"
+          BIN_NAME="$APP_NAME-$SERVICE_NAME-${{ matrix.operatingSystem.architecture }}"
+
           mkdir built_native_image
           docker compose cp $SERVICE_NAME:/builder/build/native/nativeCompile/$APP_NAME ./built_native_image/$BIN_NAME
           
