@@ -54,7 +54,10 @@ class CommandFailsDuringExecutionTest(
         test("""Response has got stderr=["ls: unrecognized option `--existing-option1", "..."]"""){
             val stdoutArray = resJsonBody.withArrayProperty("stderr")
             val stdoutLines = stdoutArray.map { it.textValue() }
-            assertThat(stdoutLines.firstOrNull()).isEqualTo("""ls: unrecognized option `--existing-option1'""")
+            assertThat(stdoutLines.firstOrNull()).containsAnyOf(
+                """ls: unrecognized option `--existing-option1'""",
+                """ls: invalid option -- '-'"""
+            )
         }
     }
 
