@@ -87,7 +87,6 @@ jobs:
           APP_NAME="cmd-jumper"
           SERVICE_NAME="${{ matrix.operatingSystem.serviceName }}"
           ARCHITECTURE="${{ matrix.operatingSystem.architecture }}"
-          CONTAINER_NAME="native-builder-$ARCHITECTURE"
           BIN_NAME="$APP_NAME-$SERVICE_NAME-${{ matrix.operatingSystem.architecture }}"
 
           docker compose build $SERVICE_NAME --build-arg ARCHITECTURE=$ARCHITECTURE
