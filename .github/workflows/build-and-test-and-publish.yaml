@@ -137,5 +137,9 @@ jobs:
         with:
           files: ./release-assets/*
           generate_release_notes: true
+          append_body: true
+          overwrite: true
+          draft: true
+          prerelease: true
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
