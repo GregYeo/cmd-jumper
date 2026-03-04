@@ -2,6 +2,8 @@ name: Build and test
 
 on:
   push:
+    branches: [main]
+    tags: ['v*']
   pull_request:
 
 permissions:
@@ -109,3 +111,31 @@ jobs:
           name: cmd-jumper-${{ matrix.operatingSystem.serviceName }}-${{ matrix.operatingSystem.architecture }}
           path: |
             ./built_native_image/**
+
+  publish-release:
+    permissions:
+      contents: write
+    needs: [ test-jvm, build-native ]
+    if: startsWith(github.ref, 'refs/tags/v')
+    runs-on: ubuntu-latest
+    steps:
+      - name: Download all artifacts
+        uses: actions/download-artifact@v4
+        with:
+          path: all-artifacts
+
+      - name: Flatten folder structure
+        run: |
+          mkdir ./release-assets
+          find ./all-artifacts -type f ! -path "*/test-results/*" -exec cp {} ./release-assets/ \;
+          
+          echo "Files to be uploaded:"
+          ls -R ./release-assets
+
+      - name: Create GitHub Release
+        uses: softprops/action-gh-release@v2
+        with:
+          files: ./release-assets/*
+          generate_release_notes: true
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
