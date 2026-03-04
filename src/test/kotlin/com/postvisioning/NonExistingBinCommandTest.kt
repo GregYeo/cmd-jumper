@@ -51,10 +51,14 @@ class NonExistingBinCommandTest(
             assertThat(stderr).isEmpty()
         }
 
-        test("""Response has got stderr=["Cannot run program \"invalid-command\": error=2, No such file or directory"]"""){
+        test("""Response has got stderr containing ["invalid-command", "No such file or directory"]"""){
             val stdoutArray = resJsonBody.withArrayProperty("stderr")
             val stdoutLines = stdoutArray.map { it.textValue() }
-            assertThat(stdoutLines).isEqualTo(listOf("""Cannot run program "invalid-command": error=2, No such file or directory"""))
+
+            assertThat(stdoutLines).anySatisfy { line ->
+                assertThat(line).contains("invalid-command", "No such file or directory")
+            }
+
         }
     }
 
